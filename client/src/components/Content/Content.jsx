@@ -31,7 +31,7 @@ const Content = ({chat}) => {
                 </div>
             )
         })}
-        <div ref={bottomRef} className='h-4 '>
+        <div ref={bottomRef} className='h-4'>
 
         </div>
     </div>

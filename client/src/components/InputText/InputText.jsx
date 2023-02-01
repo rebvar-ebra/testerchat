@@ -4,7 +4,6 @@ import send from '../../assets/send.png'
 import loader from '../../assets/loader.gif'
 
 const InputText = ({sendMessage,loading}) => {
-  
   const [value,setValue]=useState("")
 
   const handelSubmit =()=>{
@@ -14,7 +13,6 @@ const InputText = ({sendMessage,loading}) => {
   }
   return (
     <div className='w-full bg-white bg-opacity-10 max-h-40 rounded-lg py-4 overflow-auto relative'>
-        
         {loading?(
           <img src={loader}/>
         ):(
@@ -28,13 +26,12 @@ const InputText = ({sendMessage,loading}) => {
         type="text"
         onChange={(e)=>setValue(e.target.value)}
         className='border-0 bg-transparent outline-none w-11/12' />
-       
-        <img 
+        <img
         onClick={handelSubmit}
         src={send} width={20} alt="send-button" className='absolute top-4 right-3 hover:cursor-pointer ease-in duration-100 hover:scale-125' />
           </>
         )}
-        
+
     </div>
   )
 }
