@@ -1,0 +1,27 @@
+import { useState } from 'react'
+import {Header,Content,InputText} from './components/index'
+import {useMutation} from '@tanstack/react-query'
+import './App.css'
+import { fetchResponse } from './api'
+
+function App() {
+
+  
+  return (
+    <div className='bg-[#1A232E] h-screen py-6 relative sm:px-16 px-12 text-white overflow-hidden flex flex-col justify-between align-middle' >
+      <div className='gra-01 z-0 absolute'></div>
+        <div className='gra-02 z-0 absolute'></div>
+      <Header />
+      <div className='h-[90%] overflow-auto w-full max-w-4xl min-w-[20rem] py-8 px-4 self-center'>
+        <Content chat={chat} />
+
+      </div>
+      <div className='w-full max-w-4xl min-w-[20rem] self-center'>
+        <InputText sendMessage={sendMessage} loading={mutation.isLoading}/>
+      </div>
+
+    </div>
+  )
+}
+
+export default App
