@@ -4,7 +4,6 @@ import env from 'dotenv'
 import cors from 'cors'
 import {Configuration ,OpenAIApi } from 'openai';
 
-
 const app= express()
 env.config()
 app.use(cors())
@@ -16,6 +15,7 @@ const configuration = new Configuration({
 })
 
 const openai =  new OpenAIApi(configuration)
+
 
 ///listening
 app.listen("3000",()=>console.log("Listening on port 3000"))
