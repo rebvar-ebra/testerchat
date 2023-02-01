@@ -5,9 +5,21 @@ import './App.css'
 import { fetchResponse } from './api'
 
 function App() {
+  const mutation = useMutation({
+    mutationFn: ()=>{
+      return fetchResponse(chat);
+    },
+    onSuccess:(data)=>setChat((prev)=>[...prev,{sender:'ai',message: data.message.replace(/^\n\n/,"")}])
+  })
 
-  
-  return (
+  const [chat,setChat] = useState([])
+
+  const sendMessage = async (message) => {
+    await Promise.resolve(setChat(prev => [...prev, message]));
+    mutation.mutate();
+  };
+  return(
+
     <div className='bg-[#1A232E] h-screen py-6 relative sm:px-16 px-12 text-white overflow-hidden flex flex-col justify-between align-middle' >
       <div className='gra-01 z-0 absolute'></div>
         <div className='gra-02 z-0 absolute'></div>
@@ -21,6 +33,7 @@ function App() {
       </div>
 
     </div>
+
   )
 }
 
